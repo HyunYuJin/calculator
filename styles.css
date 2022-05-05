@@ -17,60 +17,78 @@ p {
   margin: 0;
   padding: 0;
 }
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
 
 .calculator {
   max-width: 220px;
   width: 200px;
   border-radius: 10px;
-  border: 0.5px solid #545556;
+  border: 0.6px solid #545556;
   background-color: #545556;
   overflow: hidden;
 }
 
-.calculator-input {
+.formula-result {
   padding: 20px 10px 0;
 }
 
-.calculator-input p {
-  color: #FFF;
+.formula-wrapper {
   text-align: right;
+}
+
+.formula {
+  color: #FFF;
   font-size: 36px;
 }
 
-.calculator-operators {
+.operators {
   display: flex;
   align-items: center;
 }
 
-.calculator-operators span {
+.operators button {
   width: calc(100% / 4);
   padding: 10px 15px;
-  text-align: center;
-  border: 0.5px solid #545556;
-  color: #FFF;
   background-color: #656667;
+  border-right: 1px solid #545556;
+  color: #FFF;
+  text-align: center;
 }
 
-.calculator-keyboard {
+.operators button:last-child {
+  border-right: none;
+}
+
+.keyboard {
   display: flex;
   justify-content: space-between;
 }
 
-.calculator-numbers {
-  flex-basis: 75%;
+.numbers-area {
+  flex-basis: 74.65%;
 }
 
 .numbers {
   display: flex;
 }
 
-.numbers span {
+.numbers button {
   width: calc(100% / 3);
   text-align: center;
   padding: 15px 10px;
   color: #FFF;
-  border: 0.5px solid #545556;
+  border-right: 1px solid #545556;
+  border-top: 1px solid #545556;
   background-color: #7e7f81;
+}
+
+.numbers button:last-child {
+  border-right: none;
 }
 
 .calculator-result {
@@ -79,8 +97,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid #545556;
+  border-left: 1px solid #545556;
 }
 
-.calculator-result span {
+.calculator-result .equals {
   color: #FFF;
+  width: 100%;
+  height: 100%;
 }
