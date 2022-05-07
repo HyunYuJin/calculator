@@ -34,17 +34,22 @@ button {
 }
 
 .formula-result {
-  padding: 20px 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  height: 50px;
+  padding: 10px 10px 0;
 }
 
 .formula-wrapper {
+  width: 100%;
   text-align: right;
 }
 
 .formula {
+  max-width: 160px;
   color: #FFF;
   font-size: 36px;
-  overflow-wrap: break-word;
 }
 
 .operators {

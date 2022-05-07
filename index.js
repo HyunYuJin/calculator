@@ -1,6 +1,7 @@
 "use strict"
 
 const nodes = {
+  formulaWrapper: document.getElementById('formulaWrapper'),
   formula: document.getElementById('formula'),
   operators: document.querySelectorAll('.operators button'),
   numbers: document.querySelectorAll('.numbers button'),
@@ -8,6 +9,8 @@ const nodes = {
   dot: document.querySelector('.dot'),
   clear: document.querySelector('.clear')
 }
+
+let fontSize = 36
 
 let arithmetic = {
   first: '',
@@ -47,7 +50,6 @@ function inputOperators (event) {
   updateResult()
   const operator = event.target.dataset.operator
   arithmetic.operator = operator
-  console.log(operator)
 }
 
 function inputNumbers (event) {
@@ -60,6 +62,8 @@ function inputNumbers (event) {
     arithmetic.last += number
     displayFormula(arithmetic.last)
   }
+
+  overflowWrapper()
 }
 
 function displayFormula (value) {
@@ -72,6 +76,21 @@ function clearFormula () {
     first: '',
     last: '',
     operator: ''
+  }
+}
+
+function overflowWrapper () {
+  const wrapperRect = nodes.formulaWrapper.getBoundingClientRect()
+  const formulaRect = nodes.formula.getBoundingClientRect()
+  
+  if (wrapperRect.width - 10 <= formulaRect.width) {
+    fontSize -= 2
+    nodes.formula.style.fontSize = fontSize + 'px'
+  }
+
+  if (fontSize <= 4) {
+    clearFormula()
+    return
   }
 }
 
