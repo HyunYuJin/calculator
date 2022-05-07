@@ -10,7 +10,7 @@ const nodes = {
   clear: document.querySelector('.clear')
 }
 
-let fontSize = 36
+let rem = 1.4
 
 let arithmetic = {
   first: '',
@@ -84,12 +84,13 @@ function overflowWrapper () {
   const formulaRect = nodes.formula.getBoundingClientRect()
   
   if (wrapperRect.width - 10 <= formulaRect.width) {
-    fontSize -= 2
-    nodes.formula.style.fontSize = fontSize + 'px'
+    rem -= 0.1
+    nodes.formula.style.fontSize = `${rem}rem`
   }
 
   if (fontSize <= 4) {
     clearFormula()
+    rem = 1.4
     return
   }
 }
