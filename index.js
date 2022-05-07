@@ -4,7 +4,9 @@ const nodes = {
   formula: document.getElementById('formula'),
   operators: document.querySelectorAll('.operators button'),
   numbers: document.querySelectorAll('.numbers button'),
-  equals: document.querySelector('.equals')
+  equals: document.querySelector('.equals'),
+  dot: document.querySelector('.dot'),
+  clear: document.querySelector('.clear')
 }
 
 let arithmetic = {
@@ -28,6 +30,8 @@ function initEvents () {
   nodes.operators.forEach(operator => operator.addEventListener('click', inputOperators))
   nodes.numbers.forEach(number => number.addEventListener('click', inputNumbers))
   nodes.equals.addEventListener('click', updateResult)
+  nodes.dot.addEventListener('click', inputNumbers)
+  nodes.clear.addEventListener('click', clearFormula)
 }
 
 function updateResult () {
@@ -43,6 +47,7 @@ function inputOperators (event) {
   updateResult()
   const operator = event.target.dataset.operator
   arithmetic.operator = operator
+  console.log(operator)
 }
 
 function inputNumbers (event) {
@@ -62,7 +67,12 @@ function displayFormula (value) {
 }
 
 function clearFormula () {
-  nodes.formula.innerHTML = ''
+  nodes.formula.innerHTML = '0'
+  arithmetic = {
+    first: '',
+    last: '',
+    operator: ''
+  }
 }
 
 init()

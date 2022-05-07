@@ -44,6 +44,7 @@ button {
 .formula {
   color: #FFF;
   font-size: 36px;
+  overflow-wrap: break-word;
 }
 
 .operators {
